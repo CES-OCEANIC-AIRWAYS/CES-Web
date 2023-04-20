@@ -1,9 +1,12 @@
 @import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
 html, body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    min-width: fit-content;
+
 }
 
 h1:focus {
@@ -95,6 +98,10 @@ a, .btn-link {
     margin-right: 50px;
 }
 
+.nav-item:hover {
+    text-decoration: underline;
+}
+
 .nav-icon {
     width: 20px;
     height: 20px;
@@ -170,7 +177,7 @@ a {
     right: 0;
     bottom: 0;
     width: 30%;
-    height: 80%;
+    height: 100%;
     object-fit: cover;
     object-position: center;
 }
@@ -198,8 +205,8 @@ a {
 }
 
 .footer-icon {
-    width: 40px;
-    height: 40px;
+    width: 20px;
+    height: 20px;
     object-fit: contain;
     margin-right: 10px;
 }
@@ -271,6 +278,7 @@ a {
     font-size: 14px;
     color: #233D92;
     text-decoration: underline;
+    margin-bottom: 80px;
 }
 
 

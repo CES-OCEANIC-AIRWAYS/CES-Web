@@ -6,28 +6,25 @@
 
 .sender-section {
     display: grid;
-    gap: 10px;
+    margin-bottom: 20px;
     align-items: center;
 }
 
 .sender-title {
     font-size: 44px;
     font-weight: bold;
-    margin-bottom: 20px;
     text-align: left;
     border-bottom: 2px solid #ff3399;
-    padding-bottom: 5px;
 }
 
 .sender-description {
-    font-weight: 300;
+    font-weight: lighter;
     font-size: 22px;
-    line-height: 33px;
     color: #000000;
 }
 
 .sender-section-title {
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     font-weight: 600;
     font-size: 32px;
     line-height: 44px;
@@ -35,13 +32,8 @@
     color: #233D92;
 }
 
-.form {
-    margin-top: 30px;
-}
-
 .label {
     display: block;
-    margin-top: 10px;
 }
 
 .sub-label {
@@ -54,7 +46,7 @@
 .input {
     width: 100%;
     padding: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     outline: none;
     background: #FFFFFF;
     border: 2px solid #233D92;
