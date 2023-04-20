@@ -1,8 +1,9 @@
-﻿using Netcompany.Net.UnitOfWork;
-using RoutePlanning.Domain.Locations;
+﻿using Microsoft.IdentityModel.Tokens;
+using Netcompany.Net.UnitOfWork;
 using RoutePlanning.Domain.Orders;
 using RoutePlanning.Domain.Users;
 using RoutePlanning.Infrastructure.Database;
+using Location = RoutePlanning.Domain.Locations.Location;
 
 namespace RoutePlanning.Client.Web;
 
@@ -20,7 +21,6 @@ public static class DatabaseInitialization
         {
             await SeedUsers(context);
             await SeedLocationsAndRoutes(context);
-            await SeedOrders(context);
 
             unitOfWork.Commit();
         }
@@ -28,44 +28,46 @@ public static class DatabaseInitialization
 
     private static async Task SeedLocationsAndRoutes(RoutePlanningDatabaseContext context)
     {
-        var berlin = new Location("Berlin");
-        await context.AddAsync(berlin);
+        if (context.Set<Location>().IsNullOrEmpty())
+        {
+            var berlin = new Location("Berlin");
+            await context.AddAsync(berlin);
 
-        var copenhagen = new Location("Copenhagen");
-        await context.AddAsync(copenhagen);
+            var copenhagen = new Location("Copenhagen");
+            await context.AddAsync(copenhagen);
 
-        var paris = new Location("Paris");
-        await context.AddAsync(paris);
+            var paris = new Location("Paris");
+            await context.AddAsync(paris);
 
-        var warsaw = new Location("Warsaw");
-        await context.AddAsync(warsaw);
+            var warsaw = new Location("Warsaw");
+            await context.AddAsync(warsaw);
 
-        CreateTwoWayConnection(berlin, warsaw, 573);
-        CreateTwoWayConnection(berlin, copenhagen, 763);
-        CreateTwoWayConnection(berlin, paris, 1054);
-        CreateTwoWayConnection(copenhagen, paris, 1362);
+            CreateTwoWayConnection(berlin, warsaw, 573);
+            CreateTwoWayConnection(berlin, copenhagen, 763);
+            CreateTwoWayConnection(berlin, paris, 1054);
+            CreateTwoWayConnection(copenhagen, paris, 1362);
+
+            // seed an order
+            var order = new Order("123", berlin, paris, 199, new DateTime(), 10, Domain.Enums.Status.Lost, "Telstar");
+            await context.AddAsync(order);
+        }
     }
 
     private static async Task SeedUsers(RoutePlanningDatabaseContext context)
     {
-        var alice = new User("alice", User.ComputePasswordHash("alice123!"));
-        await context.AddAsync(alice);
+        if (context.Set<User>().IsNullOrEmpty())
+        {
+            var alice = new User("alice", User.ComputePasswordHash("alice123!"));
+            await context.AddAsync(alice);
 
-        var bob = new User("bob", User.ComputePasswordHash("!CapableStudentCries25"));
-        await context.AddAsync(bob);
+            var bob = new User("bob", User.ComputePasswordHash("!CapableStudentCries25"));
+            await context.AddAsync(bob);
+        }
     }
 
     private static void CreateTwoWayConnection(Location locationA, Location locationB, int distance)
     {
         locationA.AddConnection(locationB, distance);
         locationB.AddConnection(locationA, distance);
-    }
-
-    private static async Task SeedOrders(RoutePlanningDatabaseContext context)
-    {
-        var berlin = new Location("Berlin");
-        var warsaw = new Location("Warsaw");
-        var order = new Order("123", berlin, warsaw, 199, new DateTime(), 10, Domain.Enums.Status.Lost, "Telstar");
-        await context.AddAsync(order);
     }
 }
