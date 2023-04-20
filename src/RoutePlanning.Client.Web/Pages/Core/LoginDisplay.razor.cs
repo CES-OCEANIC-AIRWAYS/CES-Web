@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Components;
-using MediatR;
+﻿using MediatR;
+using Microsoft.AspNetCore.Components;
 using RoutePlanning.Application.Users.Queries.AuthenticatedUser;
 using RoutePlanning.Client.Web.Authentication;
 
@@ -10,13 +10,11 @@ public sealed partial class LoginDisplay
     private string Username { get; set; } = string.Empty;
     private string Password { get; set; } = string.Empty;
     private AuthenticatedUser? User { get; set; }
-    private bool ShowAuthError { get; set; } = false;
+    private bool ShowAuthError { get; set; }
 
-    [Inject]
-    private SimpleAuthenticationStateProvider AuthStateProvider { get; set; } = default!;
+    [Inject] private SimpleAuthenticationStateProvider AuthStateProvider { get; set; } = default!;
 
-    [Inject]
-    private IMediator Mediator { get; set; } = default!;
+    [Inject] private IMediator Mediator { get; set; } = default!;
 
     private async Task Login()
     {

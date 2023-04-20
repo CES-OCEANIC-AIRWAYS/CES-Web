@@ -12,7 +12,8 @@ public static class ServiceCollectionExtensions
     {
         services.AddScoped<ProtectedBrowserStorage, ProtectedSessionStorage>();
         services.AddScoped<SimpleAuthenticationStateProvider>();
-        services.AddScoped<AuthenticationStateProvider>(provider => provider.GetRequiredService<SimpleAuthenticationStateProvider>());
+        services.AddScoped<AuthenticationStateProvider>(provider =>
+            provider.GetRequiredService<SimpleAuthenticationStateProvider>());
     }
 
     public static void AddApiTokenAuthorization(this IServiceCollection services, IConfiguration configuration)
@@ -21,7 +22,8 @@ public static class ServiceCollectionExtensions
         services.AddAuthorization(options =>
         {
             var apiToken = configuration.GetValue<string>("ApiToken")!;
-            options.AddPolicy(nameof(TokenRequirement), policy => policy.AddRequirements(new TokenRequirement(apiToken)));
+            options.AddPolicy(nameof(TokenRequirement),
+                policy => policy.AddRequirements(new TokenRequirement(apiToken)));
         });
     }
 }

@@ -5,17 +5,13 @@ namespace RoutePlanning.Client.Web.Shared;
 
 public sealed partial class LocationSelector
 {
-    [Parameter]
-    public string? Label { get; set; }
+    [Parameter] public string? Label { get; set; }
 
-    [Parameter]
-    public IEnumerable<SelectableLocation>? Locations { get; set; }
+    [Parameter] public IEnumerable<SelectableLocation>? Locations { get; set; }
 
-    [Parameter]
-    public SelectableLocation? Selected { get; set; }
+    [Parameter] public SelectableLocation? Selected { get; set; }
 
-    [Parameter]
-    public EventCallback<SelectableLocation?> SelectedChanged { get; set; }
+    [Parameter] public EventCallback<SelectableLocation?> SelectedChanged { get; set; }
 
     private async Task OnSelectedChanged(ChangeEventArgs e)
     {
