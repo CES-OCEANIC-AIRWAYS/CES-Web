@@ -17,12 +17,11 @@ public sealed class Connection : Entity<Connection>
     {
         Source = null!;
         Destination = null!;
-        Distance = null!;
     }
 
     public Location Source { get; private set; }
 
     public Location Destination { get; private set; }
 
-    public Distance Distance { get; private set; }
+    public int Distance { get; private set; }
 }
