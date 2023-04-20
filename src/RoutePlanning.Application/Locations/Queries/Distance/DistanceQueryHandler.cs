@@ -7,14 +7,14 @@ namespace RoutePlanning.Application.Locations.Queries.Distance;
 
 public sealed class DistanceQueryhandler : IQueryHandler<DistanceQuery, int>
 {
-    private readonly IQueryable<Location> _locations;
-    private readonly IShortestDistanceService _shortestDistanceService;
+            private readonly IQueryable<Location> _locations;
+            private readonly IShortestDistanceService _shortestDistanceService;
 
-    public DistanceQueryhandler(IQueryable<Location> locations, IShortestDistanceService shortestDistanceService)
-    {
-        _locations = locations;
-        _shortestDistanceService = shortestDistanceService;
-    }
+            public DistanceQueryhandler(IQueryable<Location> locations, IShortestDistanceService shortestDistanceService)
+            {
+                _locations = locations;
+                _shortestDistanceService = shortestDistanceService;
+            }
 
     public async Task<int> Handle(DistanceQuery request, CancellationToken cancellationToken)
     {
