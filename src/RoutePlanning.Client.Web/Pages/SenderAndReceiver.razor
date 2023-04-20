@@ -1,6 +1,5 @@
-﻿@page "/"
+@page "/sender-and-receiver"
 
-<PageTitle>RoutePlanner</PageTitle>
 <div class="page-container">
     <div class="navbar">
         <a href="/">
@@ -17,26 +16,27 @@
             </li>
         </ul>
     </div>
-    <div class="banner">
-        <div class="banner-content">
-            <h1 class="headline">Route Planner</h1>
-            <p class="text-description">Send your mail across Africa with our fast, reliable, and affordable postal service. Trust us to ensure your mail reaches its destination on time, every time. Experience convenience and reliability, join millions of satisfied costumers today!</p>
-            <button class="send-package-button">Send package</button>
-        </div>
-        <img src="logo-graphic.png" alt="Banner Image" class="banner-image">
-    </div>
-    <div class="card-container">
-        <div class="card">
-            <div class="card-img">
-                <img src="help.png" alt="Circle Image">
+    <div class="sender-container">
+        <h1 class="sender-title">Sender and receiver</h1>
+        <p clas="sender-description">Please tell us the name of the sender and the receiver.</p>
+        <form class="form">
+            <div class="sender-section">
+                <p class="sender-section-title">Sender</p>
+                <label for="sender" class="sub-label">Full name</label>
+                <input id="sender" type="text" class="input"/>
             </div>
-            <div class="card-content">
-                <h2 class="card-title">Need help ?</h2>
-                <p class="card-description">Call our excellent costumer service today and we will help you!</p>
-                <p class="card-description">Reach us on 1-888-548-0034</p>
+            <div class="sender-section">
+                <p class="sender-section-title">Receiver</p>
+                <label for="receiver" class="sub-label">Full name</label>
+                <input id="receiver" type="text" class="input"/>
+            </div>
+            <div class="button-container">
+                <button type="submit" class="next-button">Next</button>
+                <button type="" class="previous-button">Previous</button>
+            </div>
+            <a href="/" class="cancel-link">Cancel</a>
+        </form>
 
-            </div>
-        </div>
     </div>
     <footer class="footer">
         <ul class="footer-list">

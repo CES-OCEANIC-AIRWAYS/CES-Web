@@ -3,11 +3,19 @@
         <div class="row g-1">
             @if (ShowAuthError)
             {
-                <div class="col-auto"><div class="error text-danger m-2">Invalid login credentials</div></div>
+                <div class="col-auto">
+                    <div class="error text-danger m-2">Invalid login credentials</div>
+                </div>
             }
-            <div class="col"><input type="text" placeholder="Username" class="form-control" @bind-value="Username"></input></div>
-            <div class="col"><input type="password" class="form-control" placeholder="Password" @bind-value="Password"></input></div>
-            <div class="col-auto"><button class="btn btn-primary" @onclick="Login">Login</button></div>
+            <div class="col">
+                <input type="text" placeholder="Username" class="form-control" @bind-value="Username"></input>
+            </div>
+            <div class="col">
+                <input type="password" class="form-control" placeholder="Password" @bind-value="Password"></input>
+            </div>
+            <div class="col-auto">
+                <button class="btn btn-primary" @onclick="Login">Login</button>
+            </div>
         </div>
     </NotAuthorized>
     <Authorized>

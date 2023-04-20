@@ -1,0 +1,84 @@
+@page "/package-information"
+
+<div class="page-container">
+    <div class="navbar">
+        <a href="/">
+            <img src="logo.png" alt="Logo" class="logo">
+        </a>
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <img src="send-package.svg" alt="Send Package Icon" class="nav-icon">
+                <a href="/package-information">Send Package</a>
+            </li>
+            <li class="nav-item">
+                <img src="login.png" alt="Login Icon" class="nav-icon">
+                <a href="/login">Login</a>
+            </li>
+        </ul>
+    </div>
+    <div class="package-container">
+        <h1 class="package-title">Package Information</h1>
+        <p clas="package-description">The shipping price is determined by weight, size and route.</p>
+        <form class="form">
+            <div class="package-section">
+                <p class="package-section-title">How heavy is the package?</p>
+                <label for="weight" class="sub-label">Choose weight</label>
+                <select id="weight" name="weight" class="dropdown">
+                    <option value="1">Under 1 kg</option>
+                </select>
+            </div>
+            <div class="package-section">
+                <p class="package-section-title">What is the size of the package?</p>
+                <label for="size" class="sub-label">Choose size</label>
+                <select id="size" name="size" class="dropdown">
+                    <option value="small">Under 3 cm</option>
+                </select>
+                <label for="length" class="sub-label">Choose length</label>
+                <select id="length" name="length" class="dropdown">
+                    <option value="small">Under 3 cm</option>
+                </select>
+                <label for="width" class="sub-label">Choose width</label>
+                <select id="width" name="width" class="dropdown">
+                    <option value="small">Under 3 cm</option>
+                </select>
+            </div>
+            <div class="package-section">
+                <p class="package-section-title">Choose destination</p>
+                <label for="from" class="sub-label">From</label>
+                <select id="from" name="from" class="dropdown">
+                    <option value="a">A</option>
+                </select>
+                <label for="to" class="sub-label">To</label>
+                <select id="to" name="to" class="dropdown">
+                    <option value="b">B</option>
+                </select>
+            </div>
+            <button type="submit" class="next-button">Next</button>
+            <a href="/" class="cancel-link">Cancel</a>
+        </form>
+    </div>
+    <footer class="footer">
+        <ul class="footer-list">
+            <li class="footer-item">
+                <img src="book-flight.png" alt="Book Flights Icon" class="footer-icon">
+                <div class="footer-content">
+                    <div class="footer-title">Book Flights</div>
+                </div>
+            </li>
+            <li class="footer-item">
+                <img src="email.png" alt="Email Icon" class="footer-icon">
+                <div class="footer-content">
+                    <div class="footer-title">Email</div>
+                    <div class="footer-description">oceanic@airlines.com</div>
+                </div>
+            </li>
+            <li class="footer-item">
+                <img src="phone.png" alt="Phone Icon" class="footer-icon">
+                <div class="footer-content">
+                    <div class="footer-title">Phone</div>
+                    <div class="footer-description">1-888-548-0034</div>
+                </div>
+            </li>
+        </ul>
+    </footer>
+</div>
