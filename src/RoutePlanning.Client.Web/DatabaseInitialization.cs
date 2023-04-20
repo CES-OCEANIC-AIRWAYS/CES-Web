@@ -100,22 +100,6 @@ public static class DatabaseInitialization
             var amatave = new Location("AMATAVE");
             await context.AddAsync(amatave);
 
-<<<<<<< HEAD
-            var paris = new Location("Paris");
-            await context.AddAsync(paris);
-
-            var warsaw = new Location("Warsaw");
-            await context.AddAsync(warsaw);
-
-            CreateTwoWayConnection(berlin, warsaw, ConnectionType.Air);
-            CreateTwoWayConnection(berlin, copenhagen, ConnectionType.Air);
-            CreateTwoWayConnection(berlin, paris, ConnectionType.Sea);
-            CreateTwoWayConnection(copenhagen, paris, ConnectionType.Land);
-
-            // seed an order
-            var order = new Order("123", berlin, paris, 199, new DateTime(), 10, Domain.Enums.Status.Lost, "Telstar");
-            await context.AddAsync(order);
-=======
             CreateTwoWayConnection(tanger, marrakesh, 8);
             CreateTwoWayConnection(marrakesh, sierraleone, 8);
             CreateTwoWayConnection(sierraleone, sthelena, 8);
@@ -139,7 +123,6 @@ public static class DatabaseInitialization
             CreateTwoWayConnection(victoriasooen, suakin, 8);
             CreateTwoWayConnection(darfur, suakin, 8);
             CreateTwoWayConnection(suakin, cairo, 8);
->>>>>>> d0234cb (Default Values for connections)
         }
     }
 
