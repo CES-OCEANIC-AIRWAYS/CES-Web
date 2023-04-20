@@ -100,29 +100,29 @@ public static class DatabaseInitialization
             var amatave = new Location("AMATAVE");
             await context.AddAsync(amatave);
 
-            CreateTwoWayConnection(tanger, marrakesh, 8);
-            CreateTwoWayConnection(marrakesh, sierraleone, 8);
-            CreateTwoWayConnection(sierraleone, sthelena, 8);
-            CreateTwoWayConnection(marrakesh, guldkysten, 8);
-            CreateTwoWayConnection(guldkysten, tripoli, 8);
-            CreateTwoWayConnection(tanger, tripoli, 8);
-            CreateTwoWayConnection(guldkysten, luanda, 8);
-            CreateTwoWayConnection(guldkysten, hvalbugten, 8);
-            CreateTwoWayConnection(sthelena, kapstaden, 8);
-            CreateTwoWayConnection(hvalbugten, kapstaden, 8);
-            CreateTwoWayConnection(luanda, hvalbugten, 8);
-            CreateTwoWayConnection(tripoli, darfur, 8);
-            CreateTwoWayConnection(darfur , kabalo, 8);
-            CreateTwoWayConnection(kabalo, kapstaden, 8);
-            CreateTwoWayConnection(kapstaden,dragebjerget,8);
-            CreateTwoWayConnection(dragebjerget, victoriasooen, 8);
-            CreateTwoWayConnection(kapstaden, amatave, 8);
-            CreateTwoWayConnection(kapstaden, kapstmarie, 8);
-            CreateTwoWayConnection(amatave, kapguardafui, 8);
-            CreateTwoWayConnection(kapguardafui, victoriasooen, 8);
-            CreateTwoWayConnection(victoriasooen, suakin, 8);
-            CreateTwoWayConnection(darfur, suakin, 8);
-            CreateTwoWayConnection(suakin, cairo, 8);
+            CreateTwoWayConnection(tanger, marrakesh, ConnectionType.Air );
+            CreateTwoWayConnection(marrakesh, sierraleone, ConnectionType.Air);
+            CreateTwoWayConnection(sierraleone, sthelena, ConnectionType.Air);
+            CreateTwoWayConnection(marrakesh, guldkysten, ConnectionType.Air);
+            CreateTwoWayConnection(guldkysten, tripoli, ConnectionType.Air);
+            CreateTwoWayConnection(tanger, tripoli, ConnectionType.Air);
+            CreateTwoWayConnection(guldkysten, luanda, ConnectionType.Air);
+            CreateTwoWayConnection(guldkysten, hvalbugten, ConnectionType.Air);
+            CreateTwoWayConnection(sthelena, kapstaden, ConnectionType.Air);
+            CreateTwoWayConnection(hvalbugten, kapstaden, ConnectionType.Air);
+            CreateTwoWayConnection(luanda, hvalbugten, ConnectionType.Air);
+            CreateTwoWayConnection(tripoli, darfur, ConnectionType.Air);
+            CreateTwoWayConnection(darfur , kabalo, ConnectionType.Air);
+            CreateTwoWayConnection(kabalo, kapstaden, ConnectionType.Air);
+            CreateTwoWayConnection(kapstaden,dragebjerget, ConnectionType.Air);
+            CreateTwoWayConnection(dragebjerget, victoriasooen, ConnectionType.Air);
+            CreateTwoWayConnection(kapstaden, amatave, ConnectionType.Air);
+            CreateTwoWayConnection(kapstaden, kapstmarie, ConnectionType.Air);
+            CreateTwoWayConnection(amatave, kapguardafui, ConnectionType.Air);
+            CreateTwoWayConnection(kapguardafui, victoriasooen, ConnectionType.Air);
+            CreateTwoWayConnection(victoriasooen, suakin, ConnectionType.Air);
+            CreateTwoWayConnection(darfur, suakin, ConnectionType.Air);
+            CreateTwoWayConnection(suakin, cairo, ConnectionType.Air);
         }
     }
 
