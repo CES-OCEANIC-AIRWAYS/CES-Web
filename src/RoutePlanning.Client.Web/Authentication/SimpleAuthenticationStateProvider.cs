@@ -6,8 +6,8 @@ namespace RoutePlanning.Client.Web.Authentication;
 
 public sealed class SimpleAuthenticationStateProvider : AuthenticationStateProvider
 {
-    private readonly ProtectedBrowserStorage _browserStorage;
     private readonly AuthenticationState _anonymousState;
+    private readonly ProtectedBrowserStorage _browserStorage;
 
     public SimpleAuthenticationStateProvider(ProtectedBrowserStorage browserStorage)
     {
@@ -46,10 +46,7 @@ public sealed class SimpleAuthenticationStateProvider : AuthenticationStateProvi
 
     private static AuthenticationState CreateUserAuthenticationState(UserSession userSession)
     {
-        var claims = new List<Claim>
-        {
-            new Claim(ClaimTypes.Name, userSession.Username),
-        };
+        var claims = new List<Claim> { new(ClaimTypes.Name, userSession.Username) };
 
         var claimsPrincipal = new ClaimsPrincipal(new ClaimsIdentity(claims, "UsernamePassword"));
 

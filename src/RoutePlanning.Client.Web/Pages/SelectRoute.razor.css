@@ -1,0 +1,149 @@
+.route-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.route-section {
+    display: grid;
+    gap: 10px;
+    align-items: center;
+}
+
+.route-header {
+    display: flex;
+    align-items: center;
+}
+
+.route-header .icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+}
+
+.route-section-title {
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 44px;
+    letter-spacing: 0.25px;
+    color: #233D92;
+}
+
+.route-title {
+    font-size: 44px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: left;
+    border-bottom: 2px solid #ff3399;
+    padding-bottom: 5px;
+}
+
+.route-description {
+    font-weight: 300;
+    font-size: 22px;
+    line-height: 33px;
+    color: #000000;
+}
+
+.route-card-container {
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.route-card {
+    width: 542px;
+    height: 113px;
+    margin: 0 auto;
+    padding: 16px;
+    background: #FFFFFF;
+    border: 2px solid #233D92;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.route-card:hover {
+    border: 2px solid #E64395;
+}
+
+.text-container {
+    display: flex;
+    align-items: center;
+}
+
+.destination {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 27px;
+    color: #AD0057;
+    margin: 0;
+}
+
+.hours,
+.price {
+    margin-right: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 27px;
+    color: #000000;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 12px;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 16px;
+    gap: 8px;
+    background: #233D92;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background: #E64395;
+}
+
+.previous-button {
+    margin-left: 10px;
+    padding: 12px 16px;
+    background-color: #fff;
+    color: #233D92;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 2px solid #233D92;
+    border-radius: 8px;
+    transition: background-color 0.8s ease;
+}
+
+.previous-button:hover {
+    background-color: #E64395;
+    color: #fff;
+}
+
+.button-group {
+    display: flex;
+    justify-content: flex-start;
+}
+
+
+
