@@ -34,7 +34,7 @@ public class Order : AggregateRoot<Order>
         CurrentCarrier = null!;
     }
 
-    public string TrackingNumber { get; set; } = String.Empty; //12
+    public string TrackingNumber { get; set; } = string.Empty; //12
 
     public long? Width { get; set; }
 

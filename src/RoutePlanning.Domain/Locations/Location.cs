@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using Netcompany.Net.DomainDrivenDesign.Models;
+using RoutePlanning.Domain.Enums;
 
 namespace RoutePlanning.Domain.Locations;
 
@@ -17,9 +18,9 @@ public sealed class Location : AggregateRoot<Location>
 
     public IReadOnlyCollection<Connection> Connections => _connections.AsReadOnly();
 
-    public Connection AddConnection(Location destination, int distance)
+    public Connection AddConnection(Location destination, ConnectionType type)
     {
-        Connection connection = new(this, destination, distance);
+        Connection connection = new(this, destination, type);
 
         _connections.Add(connection);
 

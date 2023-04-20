@@ -1,5 +1,6 @@
 ﻿using Microsoft.IdentityModel.Tokens;
 using Netcompany.Net.UnitOfWork;
+using RoutePlanning.Domain.Enums;
 using RoutePlanning.Domain.Orders;
 using RoutePlanning.Domain.Users;
 using RoutePlanning.Infrastructure.Database;
@@ -42,10 +43,10 @@ public static class DatabaseInitialization
             var warsaw = new Location("Warsaw");
             await context.AddAsync(warsaw);
 
-            CreateTwoWayConnection(berlin, warsaw, 573);
-            CreateTwoWayConnection(berlin, copenhagen, 763);
-            CreateTwoWayConnection(berlin, paris, 1054);
-            CreateTwoWayConnection(copenhagen, paris, 1362);
+            CreateTwoWayConnection(berlin, warsaw, ConnectionType.Air);
+            CreateTwoWayConnection(berlin, copenhagen, ConnectionType.Air);
+            CreateTwoWayConnection(berlin, paris, ConnectionType.Sea);
+            CreateTwoWayConnection(copenhagen, paris, ConnectionType.Land);
 
             // seed an order
             var order = new Order("123", berlin, paris, 199, new DateTime(), 10, Domain.Enums.Status.Lost, "Telstar");
@@ -65,9 +66,9 @@ public static class DatabaseInitialization
         }
     }
 
-    private static void CreateTwoWayConnection(Location locationA, Location locationB, int distance)
+    private static void CreateTwoWayConnection(Location locationA, Location locationB, ConnectionType type)
     {
-        locationA.AddConnection(locationB, distance);
-        locationB.AddConnection(locationA, distance);
+        locationA.AddConnection(locationB, type);
+        locationB.AddConnection(locationA, type);
     }
 }

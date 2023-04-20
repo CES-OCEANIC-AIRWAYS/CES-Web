@@ -5,6 +5,7 @@ namespace RoutePlanning.Domain.Locations.Services;
 public sealed class ShortestDistanceService : IShortestDistanceService
 {
     private readonly IQueryable<Location> _locations;
+    private readonly int airTime = 8;
 
     public ShortestDistanceService(IQueryable<Location> locations)
     {
@@ -17,7 +18,7 @@ public sealed class ShortestDistanceService : IShortestDistanceService
 
         var path = CalculateShortestPath(locations, source, target);
 
-        return path.Sum(c => c.Distance);
+        return path.Count() * airTime;
     }
 
     /// <summary>
@@ -64,12 +65,14 @@ public sealed class ShortestDistanceService : IShortestDistanceService
             unvisitedLocations.Remove(location);
         }
 
+        
+        
         return shortestConnections;
     }
 
     private static void UpdateShortestConnections(Dictionary<Location, (Connection? SourceConnection, int Distance)> shortestConnections, Location location, Connection connection)
     {
-        var distance = shortestConnections[location].Distance + connection.Distance;
+        var distance = shortestConnections[location].Distance + 8;
 
         if (distance < shortestConnections[connection.Destination].Distance)
         {
@@ -93,7 +96,10 @@ public sealed class ShortestDistanceService : IShortestDistanceService
         }
 
         path.Reverse();
-
+        for (var i = 0; i < path.Count(); i++)
+        {
+            Console.WriteLine(path[i].Source.Name + "->" + path[i].Destination.Name);
+        }
         return path;
     }
 }
