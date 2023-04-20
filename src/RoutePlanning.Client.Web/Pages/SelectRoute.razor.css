@@ -6,7 +6,7 @@
 
 .route-section {
     display: grid;
-    gap: 10px;
+    margin-bottom: 20px;
     align-items: center;
 }
 
@@ -15,14 +15,21 @@
     align-items: center;
 }
 
-.route-header .icon {
+.icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    margin-top: 16px;
+}
+
+.icon {
     width: 24px;
     height: 24px;
-    margin-right: 8px;
 }
 
 .route-section-title {
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     font-weight: 600;
     font-size: 32px;
     line-height: 44px;
@@ -33,16 +40,13 @@
 .route-title {
     font-size: 44px;
     font-weight: bold;
-    margin-bottom: 20px;
     text-align: left;
     border-bottom: 2px solid #ff3399;
-    padding-bottom: 5px;
 }
 
 .route-description {
-    font-weight: 300;
+    font-weight: lighter;
     font-size: 22px;
-    line-height: 33px;
     color: #000000;
 }
 
@@ -55,7 +59,7 @@
     width: 542px;
     height: 113px;
     margin: 0 auto;
-    padding: 16px;
+    padding: 24px;
     background: #FFFFFF;
     border: 2px solid #233D92;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
@@ -102,7 +106,7 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    margin-top: 12px;
+    margin-top: 24px;
 }
 
 .button {
@@ -110,7 +114,6 @@
     justify-content: center;
     align-items: center;
     padding: 12px 16px;
-    gap: 8px;
     background: #233D92;
     color: #FFFFFF;
     border: none;
@@ -133,6 +136,7 @@
     border: 2px solid #233D92;
     border-radius: 8px;
     transition: background-color 0.8s ease;
+    margin-top: 40px;
 }
 
 .previous-button:hover {
