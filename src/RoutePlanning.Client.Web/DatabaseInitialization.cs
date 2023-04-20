@@ -1,5 +1,6 @@
 ﻿using Netcompany.Net.UnitOfWork;
 using RoutePlanning.Domain.Locations;
+using RoutePlanning.Domain.Orders;
 using RoutePlanning.Domain.Users;
 using RoutePlanning.Infrastructure.Database;
 
@@ -19,6 +20,7 @@ public static class DatabaseInitialization
         {
             await SeedUsers(context);
             await SeedLocationsAndRoutes(context);
+            await SeedOrders(context);
 
             unitOfWork.Commit();
         }
@@ -57,5 +59,13 @@ public static class DatabaseInitialization
     {
         locationA.AddConnection(locationB, distance);
         locationB.AddConnection(locationA, distance);
+    }
+
+    private static async Task SeedOrders(RoutePlanningDatabaseContext context)
+    {
+        var berlin = new Location("Berlin");
+        var warsaw = new Location("Warsaw");
+        var order = new Order("123", berlin, warsaw, 199, new DateTime(), 10, Domain.Enums.Status.Lost, "Telstar");
+        await context.AddAsync(order);
     }
 }
