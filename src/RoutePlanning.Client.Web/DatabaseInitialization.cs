@@ -1,4 +1,7 @@
-﻿using Microsoft.IdentityModel.Tokens;
+﻿using System;
+using System.Runtime.InteropServices;
+using MediatR;
+using Microsoft.IdentityModel.Tokens;
 using Netcompany.Net.UnitOfWork;
 using RoutePlanning.Domain.Enums;
 using RoutePlanning.Domain.Orders;
@@ -31,12 +34,73 @@ public static class DatabaseInitialization
     {
         if (context.Set<Location>().IsNullOrEmpty())
         {
-            var berlin = new Location("Berlin");
-            await context.AddAsync(berlin);
 
-            var copenhagen = new Location("Copenhagen");
-            await context.AddAsync(copenhagen);
+            var dekanarikooer = new Location("DEKANARISKEOEER");
+            await context.AddAsync(dekanarikooer);
+            var marrakesh = new Location("MARRAKESH");
+            await context.AddAsync(marrakesh);
+            var dakar = new Location("DAKAR");
+            await context.AddAsync(dakar);
+            var sierraleone = new Location("SIERRALEONE");
+            await context.AddAsync(sierraleone);
+            var guldkysten = new Location("GULDKYSTEN");
+            await context.AddAsync(guldkysten);
+            var timbuktu = new Location("TIMBUKTU");
+            await context.AddAsync(timbuktu);
+            var sahara = new Location("SAHARA");
+            await context.AddAsync(sahara);
+            var tunis = new Location("TUNIS");
+            await context.AddAsync(tunis);
+            var tanger = new Location("TANGER");
+            await context.AddAsync(tanger);
+            var tripoli = new Location("TRIPOLI");
+            await context.AddAsync(tripoli);
+            var wadai = new Location("WADAI");
+            await context.AddAsync(wadai); 
+            var slavekysten = new Location("SLAVEKYSTEN");
+            await context.AddAsync(slavekysten);
+            var darfur = new Location("DARFUR");
+            await context.AddAsync(darfur);
+            var omdurman = new Location("OMDURMAN");
+            await context.AddAsync(omdurman);
+            var cairo = new Location("CAIRO");
+            await context.AddAsync(cairo);
+            var suakin = new Location("SUAKIN");
+            await context.AddAsync(suakin);
+            var addisadeba = new Location("ADDISADEBA");
+            await context.AddAsync(addisadeba);
+            var kapguardafui = new Location("KAPGUARDAFUI");
+            await context.AddAsync(kapguardafui);
+            var bahrelghazal = new Location("BAHRELGHAZAL");
+            await context.AddAsync(bahrelghazal);
+            var congo = new Location("CONGO");
+            await context.AddAsync(congo);
+            var luanda = new Location("LUANDA");
+            await context.AddAsync(luanda);
+            var sthelena = new Location("STHELENA");
+            await context.AddAsync(sthelena);
+            var victoriasooen = new Location("VICTORIASOEEN");
+            await context.AddAsync(victoriasooen);
+            var kabalo = new Location("KABALO");
+            await context.AddAsync(kabalo);
+            var zanzibar = new Location("ZANZIBAR");
+            await context.AddAsync(zanzibar);
+            var mocambique = new Location("MOCAMBIQUE");
+            await context.AddAsync(mocambique);
+            var dragebjerget = new Location("DRAGEBJERGET");
+            await context.AddAsync(dragebjerget);
+            var victoriafaldene = new Location("VICTORIAFALDENE");
+            await context.AddAsync(victoriafaldene);
+            var hvalbugten = new Location("HVALBUGTEN");
+            await context.AddAsync(hvalbugten);
+            var kapstaden = new Location("KAPSTADEN");
+            await context.AddAsync(kapstaden);
+            var kapstmarie = new Location("KAPSTMARIE");
+            await context.AddAsync(kapstmarie);
+            var amatave = new Location("AMATAVE");
+            await context.AddAsync(amatave);
 
+<<<<<<< HEAD
             var paris = new Location("Paris");
             await context.AddAsync(paris);
 
@@ -51,6 +115,31 @@ public static class DatabaseInitialization
             // seed an order
             var order = new Order("123", berlin, paris, 199, new DateTime(), 10, Domain.Enums.Status.Lost, "Telstar");
             await context.AddAsync(order);
+=======
+            CreateTwoWayConnection(tanger, marrakesh, 8);
+            CreateTwoWayConnection(marrakesh, sierraleone, 8);
+            CreateTwoWayConnection(sierraleone, sthelena, 8);
+            CreateTwoWayConnection(marrakesh, guldkysten, 8);
+            CreateTwoWayConnection(guldkysten, tripoli, 8);
+            CreateTwoWayConnection(tanger, tripoli, 8);
+            CreateTwoWayConnection(guldkysten, luanda, 8);
+            CreateTwoWayConnection(guldkysten, hvalbugten, 8);
+            CreateTwoWayConnection(sthelena, kapstaden, 8);
+            CreateTwoWayConnection(hvalbugten, kapstaden, 8);
+            CreateTwoWayConnection(luanda, hvalbugten, 8);
+            CreateTwoWayConnection(tripoli, darfur, 8);
+            CreateTwoWayConnection(darfur , kabalo, 8);
+            CreateTwoWayConnection(kabalo, kapstaden, 8);
+            CreateTwoWayConnection(kapstaden,dragebjerget,8);
+            CreateTwoWayConnection(dragebjerget, victoriasooen, 8);
+            CreateTwoWayConnection(kapstaden, amatave, 8);
+            CreateTwoWayConnection(kapstaden, kapstmarie, 8);
+            CreateTwoWayConnection(amatave, kapguardafui, 8);
+            CreateTwoWayConnection(kapguardafui, victoriasooen, 8);
+            CreateTwoWayConnection(victoriasooen, suakin, 8);
+            CreateTwoWayConnection(darfur, suakin, 8);
+            CreateTwoWayConnection(suakin, cairo, 8);
+>>>>>>> d0234cb (Default Values for connections)
         }
     }
 
