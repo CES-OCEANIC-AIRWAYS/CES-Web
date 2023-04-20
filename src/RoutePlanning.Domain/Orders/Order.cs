@@ -46,17 +46,11 @@ public class Order : AggregateRoot<Order>
 
     public Location Start { get; set; }
 
-    public long StartId { get; set; }
-
     public Location End { get; set; }
-
-    public long EndId { get; set; }
 
     public long Cost { get; set; }
 
     public User? User { get; set; }
-
-    public long? UserId { get; set; }
 
     public DateTime Timestamp { get; set; }
 
