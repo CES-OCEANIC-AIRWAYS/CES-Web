@@ -5,7 +5,7 @@ namespace RoutePlanning.Domain.Locations.Services;
 public sealed class CheapestPathService : ICheapestPathService
 {
     private readonly IQueryable<Location> _locations;
-
+    private readonly int airTime = 8;
     public CheapestPathService(IQueryable<Location> locations)
     {
         _locations = locations;
@@ -17,7 +17,7 @@ public sealed class CheapestPathService : ICheapestPathService
 
         var path = CalculateShortestPath(locations, source, target);
 
-        return path.Sum(c => c.Distance);
+        return path.Count() * airTime;
     }
 
     /// <summary>
@@ -71,7 +71,7 @@ public sealed class CheapestPathService : ICheapestPathService
 
     private static void UpdateShortestConnections(Dictionary<Location, (Connection? SourceConnection, int Distance)> shortestConnections, Location location, Connection connection)
     {
-        var distance = shortestConnections[location].Distance + connection.Distance;
+        var distance = shortestConnections[location].Distance + 8;
 
         if (distance < shortestConnections[connection.Destination].Distance)
         {

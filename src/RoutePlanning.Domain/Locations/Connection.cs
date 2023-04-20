@@ -1,16 +1,17 @@
 ﻿using System.Diagnostics;
 using Netcompany.Net.DomainDrivenDesign.Models;
+using RoutePlanning.Domain.Enums;
 
 namespace RoutePlanning.Domain.Locations;
 
 [DebuggerDisplay("{Source} --{Distance}--> {Destination}")]
 public sealed class Connection : Entity<Connection>
 {
-    public Connection(Location source, Location destination, Distance distance)
+    public Connection(Location source, Location destination, ConnectionType type)
     {
         Source = source;
         Destination = destination;
-        Distance = distance;
+        Type = type;
     }
 
     private Connection()
@@ -23,5 +24,5 @@ public sealed class Connection : Entity<Connection>
 
     public Location Destination { get; private set; }
 
-    public int Distance { get; private set; }
+    public ConnectionType Type { get; private set; }
 }

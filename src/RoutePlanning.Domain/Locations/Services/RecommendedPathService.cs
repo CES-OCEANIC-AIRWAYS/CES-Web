@@ -5,6 +5,7 @@ namespace RoutePlanning.Domain.Locations.Services;
 public sealed class RecommendedPathService : IRecommendedPathService
 {
     private readonly IQueryable<Location> _locations;
+    private readonly int airTime = 8;
 
     public RecommendedPathService(IQueryable<Location> locations)
     {
@@ -17,7 +18,7 @@ public sealed class RecommendedPathService : IRecommendedPathService
 
         var path = CalculateShortestRecommendedPath(locations, source, target);
 
-        return path.Sum(c => c.Distance);
+        return path.Count() * airTime;
     }
 
     /// <summary>
@@ -71,7 +72,7 @@ public sealed class RecommendedPathService : IRecommendedPathService
 
     private static void UpdateShortestRecommendedConnections(Dictionary<Location, (Connection? SourceConnection, int Distance)> shortestRecommendedConnections, Location location, Connection connection)
     {
-        var distance = shortestRecommendedConnections[location].Distance + connection.Distance;
+        var distance = shortestRecommendedConnections[location].Distance + 8;
 
         if (distance < shortestRecommendedConnections[connection.Destination].Distance)
         {
