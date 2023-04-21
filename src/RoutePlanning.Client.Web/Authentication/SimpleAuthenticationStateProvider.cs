@@ -44,7 +44,7 @@ public sealed class SimpleAuthenticationStateProvider : AuthenticationStateProvi
         NotifyAuthenticationStateChanged(Task.FromResult(_anonymousState));
     }
 
-    private static AuthenticationState CreateUserAuthenticationState(UserSession userSession)
+    public static AuthenticationState CreateUserAuthenticationState(UserSession userSession)
     {
         var claims = new List<Claim> { new(ClaimTypes.Name, userSession.Username) };
 

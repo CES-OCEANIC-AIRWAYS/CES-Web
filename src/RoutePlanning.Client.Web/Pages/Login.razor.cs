@@ -16,7 +16,7 @@ public sealed partial class Login
 
     [Inject] private IMediator Mediator { get; set; } = default!;
 
-    private async Task Signin()
+    public async Task Signin()
     {
         User = await Mediator.Send(new AuthenticatedUserQuery(Username, Password), CancellationToken.None);
 
@@ -25,13 +25,8 @@ public sealed partial class Login
         if (User is not null)
         {
             await AuthStateProvider.SetAuthenticationStateAsync(new UserSession(User.Username));
+            StateHasChanged();
+            NavigationManager.NavigateTo("/");
         }
-    }
-
-    private async Task Logout()
-    {
-        await AuthStateProvider.ClearAuthenticationStateAsync();
-
-        ShowAuthError = false;
     }
 }

@@ -10,15 +10,22 @@
                 <img src="send-package.svg" alt="Send Package Icon" class="nav-icon">
                 <a href="/package-information">Send Package</a>
             </li>
-            <li class="nav-item">
-                <img src="login.png" alt="Login Icon" class="nav-icon">
-                <a href="/login">Login</a>
-            </li>
+            <AuthorizeView>
+                <NotAuthorized>
+                    <li class="nav-item">
+                        <img src="login.png" alt="Login Icon" class="nav-icon">
+                        <a href="/login">Login</a>
+                    </li>
+                </NotAuthorized>
+                <Authorized>
+                    <span class="m-2">@context.User.Identity?.Name</span>
+                </Authorized>
+            </AuthorizeView>
         </ul>
     </div>
     <div class="route-container">
         <h1 class="route-title">Select route</h1>
-        <p clas="route-description">Lorem</p>
+		<p clas="route-description">Please select a route for your delivery.</p>
         <div class="route-section">
             <div class="route-header">
               <div class="icon-container">
@@ -50,7 +57,9 @@
 
         <div class="route-section">
             <div class="route-header">
-
+				<div class="icon-container">
+					<img src="fatest.png" alt="Star Icon" class="icon">
+				</div>
                 <p class="route-section-title">Fastest delivery</p>
             </div>
             <div class="route-card-container">
@@ -75,6 +84,9 @@
         </div>
         <div class="route-section">
             <div class="route-header">
+				<div class="icon-container">
+					<img src="cheapest.png" alt="Star Icon" class="icon">
+				</div>
                 <p class="route-section-title">Cheapest delivery</p>
             </div>
             <div class="route-card-container">

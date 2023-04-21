@@ -4,6 +4,7 @@ using Netcompany.Net.Logging.Serilog;
 using Netcompany.Net.UnitOfWork;
 using Netcompany.Net.Validation;
 using RoutePlanning.Application;
+using RoutePlanning.Client.Web.Pages;
 using RoutePlanning.Infrastructure;
 
 namespace RoutePlanning.Client.Web;
@@ -13,6 +14,8 @@ public sealed class Program
     public static async Task Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
+        builder.Services.AddScoped<Login>();
+
 
         builder.Services.AddRoutePlanningInfrastructure();
         builder.Services.AddRoutePlanningApplication();
