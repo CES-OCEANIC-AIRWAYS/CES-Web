@@ -304,4 +304,10 @@ span {
         background-color: #E64395;
     }
 
+    .button-next{
+        color: #fff;
+    }
 
+    .button-previous{
+        color: #000;
+    }
