@@ -53,27 +53,14 @@
     margin-bottom: 10px;
 }
 
-.login-button {
-    padding: 12px 16px;
-    background-color: #233D92;
-    color: #fff;
-    font-size: 18px;
-    font-weight: 600;
-    cursor: pointer;
-    border: none;
-    border-radius: 8px;
-    outline: none;
-    transition: background-color 0.8s ease;
-}
-
-.login-button:hover {
-    background-color: #E64395;
-}
-
 .signup-link {
     margin-top: 20px;
     display: block;
     font-size: 14px;
     color: #233D92;
     text-decoration: underline;
+}
+
+.error-message{
+    color: red;
 }

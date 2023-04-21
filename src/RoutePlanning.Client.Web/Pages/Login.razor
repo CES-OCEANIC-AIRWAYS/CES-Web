@@ -1,4 +1,6 @@
 @page "/login"
+@inject NavigationManager NavigationManager
+
 <div class="page-container">
 
     <div class="container">
@@ -11,14 +13,22 @@
                     <img src="send-package.svg" alt="Send Package Icon" class="nav-icon">
                     <a href="/package-information">Send Package</a>
                 </li>
+                <AuthorizeView>
+    <NotAuthorized>
                 <li class="nav-item">
                     <img src="login.png" alt="Login Icon" class="nav-icon">
                     <a href="/login">Login</a>
                 </li>
+                    </NotAuthorized>
+                    <Authorized>
+                        <span class="m-2">@context.User.Identity?.Name</span>
+                    </Authorized>
+                </AuthorizeView>
             </ul>
         </div>
 
     </div>
+
     <div class="login-body">
         <div class="login-container">
             <h1 class="login-title">Login</h1>
@@ -30,6 +40,10 @@
                 <label for="password" class="login-label">Password</label>
                 <input type="password" id="password" placeholder="Password" class="login-input" @bind-value="Password">
             </div>
+            @if (ShowAuthError)
+            {
+                <p class="error-message">Invalid login credentials</p>
+            }
             <button type="submit" class="login-button" @onclick="Signin">Login</button>
             <a href="/signup" class="signup-link">Sign Up</a>
         </div>

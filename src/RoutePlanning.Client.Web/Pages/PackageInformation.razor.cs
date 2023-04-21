@@ -2,9 +2,11 @@
 using MediatR;
 using Microsoft.AspNetCore.Components;
 using RoutePlanning.Application.Locations.Queries.SelectableLocationList;
+
 namespace RoutePlanning.Client.Web.Pages;
 
 public partial class PackageInformation
+
 {
     private List<SelectableLocation> locations = new List<SelectableLocation>();
 

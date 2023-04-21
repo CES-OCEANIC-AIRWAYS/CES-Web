@@ -10,10 +10,17 @@
                 <img src="send-package.svg" alt="Send Package Icon" class="nav-icon">
                 <a href="/package-information">Send Package</a>
             </li>
-            <li class="nav-item">
-                <img src="login.png" alt="Login Icon" class="nav-icon">
-                <a href="/login">Login</a>
-            </li>
+            <AuthorizeView>
+                <NotAuthorized>
+                    <li class="nav-item">
+                        <img src="login.png" alt="Login Icon" class="nav-icon">
+                        <a href="/login">Login</a>
+                    </li>
+                </NotAuthorized>
+                <Authorized>
+                    <span class="m-2">@context.User.Identity?.Name</span>
+                </Authorized>
+            </AuthorizeView>
         </ul>
     </div>
     <div class="sender-container">
