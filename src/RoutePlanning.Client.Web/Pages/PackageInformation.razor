@@ -27,31 +27,31 @@
     <div class="package-container">
         <h1 class="package-title">Package Information</h1>
         <p clas="package-description">The shipping price is determined by weight, size and route.</p>
-		<form method="post" action="api/routes/find-routes" @onsubmit="SubmitForm">
+		<form>
 
             <div class="package-section">
                 <p class="package-section-title">How heavy is the package?</p>
                 <label for="Weight" class="sub-label">Choose weight</label>
-				<input type="text" id="Weight" class="input" @bind="formData.Weight" />
+				<input type="text" id="Weight" class="input"  />
 
             </div>
 
             <div class="package-section">
                 <p class="package-section-title">What is the size of the package?</p>
                 <label for="Size" class="sub-label">Choose size</label>
-				<input type="text" id="ize" class="input" @bind="formData.Size" />
+				<input type="text" id="ize" class="input" />
 
                 <label for="Length" class="sub-label">Choose length</label>
-				<input type="text" id="Length" class="input" @bind="formData.Length" />
+				<input type="text" id="Length" class="input"  />
 
 			<label for="Width" class="sub-label">Choose width</label>
-			<input type="text" id="Width" class="input" @bind="formData.Width"/>
+			<input type="text" id="Width" class="input" />
             </div>
             <div class="package-section">
                 <p class="package-section-title">Choose destination</p>
 			<label for="SourceId" class="sub-label">From</label>
 
-				<select id="SourceId" name="SourceId" class="dropdown" @bind="formData.SourceId">
+				<select id="SourceId" name="SourceId" class="dropdown">
 					@foreach (var location in locations)
 					{
 						<option value="@location.LocationId.Value">@location.Name</option>
@@ -61,7 +61,7 @@
 				
 			<label for="DestinationId" class="sub-label">To</label>
 
-				<select id="DestinationId" name="DestinationId" class="dropdown" @bind="formData.DestinationId">
+				<select id="DestinationId" name="DestinationId" class="dropdown">
 					@foreach (var location in locations)
 					{
 
@@ -70,7 +70,7 @@
 				</select>
 				
             </div>
-		<button type="submit" class="next-button"><a href="/sender-and-receiver">Next</a></button>
+		<button class="next-button"><a href="/sender-and-receiver" class="button-next">Next</a></button>
 
             <a href="/" class="cancel-link">Cancel</a>
 		</form>
@@ -101,56 +101,3 @@
         </ul>
     </footer>
 </div>
-
-@code {
-	private FormData formData = new FormData();
-
-	private void UpdateSourceId(Guid locationId)
-	{
-		formData.SourceId = locationId.ToString();
-	}
-
-	private void UpdateDestinationId(Guid destinationId)
-	{
-		formData.DestinationId = destinationId.ToString();
-	}
-
-
-	private async Task SubmitForm()
-    {
-        string json = JsonSerializer.Serialize(formData);
-		var request = new HttpRequestMessage(HttpMethod.Post, "api/routes/find-routes");
-		request.Content = new StringContent(json, Encoding.UTF8, "application/json");
-		var httpClient = new HttpClient();
-		httpClient.BaseAddress = new Uri("https://localhost:7004/");
-		var response = await httpClient.SendAsync(request);
-
-        if (response.IsSuccessStatusCode)
-        {
-            NavigationManager.NavigateTo("/");
-        }
-        else
-        {
-            var responseContent = await response.Content.ReadAsStringAsync();
-            Console.WriteLine(responseContent);
-        }
-    }
-
-
-	private class FormData
-	{
-		public int Weight { get; set; }
-		public int Size { get; set; }
-		public int Length { get; set; }
-		public int Width { get; set; }
-		#pragma warning disable CS8618
-		public string SourceId { get; set; }
-		public string DestinationId { get; set; }
-	}
-
-}
-     
-
-
-
-
